@@ -120,9 +120,5 @@ npm install @nestjs/config
 Swagger
 npm install @nestjs/swagger swagger-ui-express
 
-
-หมายเหตุ: ปกติใช้แค่ npm install ครั้งเดียวก็พอ
-รายการด้านบนเป็นเพียงสรุปเทคโนโลยีที่ใช้
-
 3️⃣Run Application
 npm run start:dev
