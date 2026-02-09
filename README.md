@@ -112,7 +112,7 @@ Authentication
 npm install @nestjs/jwt @nestjs/passport passport passport-jwt
 
 Security
-npm install bcrypt
+npm install bcryptjs
 
 Config
 npm install @nestjs/config
