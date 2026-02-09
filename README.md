@@ -49,3 +49,49 @@
 
 ## 📁 Project Structure
 
+โครงสร้างโปรเจกต์ถูกออกแบบโดยแยกตามความรับผิดชอบ (Module-based)  
+เพื่อให้ง่ายต่อการดูแลและขยายระบบในอนาคต
+
+src/
+├─ auth/ # Authentication & Authorization
+│ ├─ dto/
+│ │ └─ login.dto.ts # DTO สำหรับรับข้อมูล login
+│ ├─ auth.controller.ts # Controller สำหรับ /auth/login
+│ ├─ auth.service.ts # ตรวจสอบผู้ใช้และสร้าง JWT Token
+│ ├─ auth.module.ts # Auth module
+│ └─ jwt.strategy.ts # JWT Strategy (Passport)
+│
+├─ user/ # User Management
+│ ├─ dto/
+│ │ └─ register-user.dto.ts # DTO สำหรับ register user
+│ ├─ user.controller.ts # Controller สำหรับ /users
+│ ├─ user.service.ts # Business logic ของ user
+│ ├─ user.model.ts # User schema (Typegoose)
+│ └─ user.module.ts # User module
+│
+├─ country/ # Master Country
+│ ├─ dto/
+│ │ └─ create-country.dto.ts # DTO สำหรับสร้าง country
+│ ├─ country.controller.ts # Controller สำหรับ /countries
+│ ├─ country.service.ts # Business logic ของ country
+│ ├─ country.model.ts # Country schema (Typegoose)
+│ └─ country.module.ts # Country module
+│
+├─ types/
+│ └─ jwt-payload.type.ts # Interface โครงสร้างข้อมูลใน JWT
+│
+├─ app.module.ts # Main application module
+├─ main.ts # Entry point ของแอปพลิเคชัน
+│
+.env # Environment variables
+.gitignore # Git ignore file
+package.json # Dependencies และ scripts
+tsconfig.json # TypeScript configuration
+README.md # Project documentation
+
+### 🧠 แนวคิดในการจัดโครงสร้าง
+
+- แยกเป็น module ตามหน้าที่ (auth / user / country)
+- ใช้ DTO เพื่อควบคุมรูปแบบ request และใช้กับ Swagger
+- ใช้ Typegoose เพื่อจัดการ MongoDB schema ด้วย TypeScript
+- Route ที่ต้องป้องกัน ใช้ JWT Guard ผ่าน Passport
