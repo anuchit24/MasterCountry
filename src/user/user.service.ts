@@ -11,7 +11,7 @@ export class UserService {
     private readonly userModel: ReturnModelType<typeof User>,
   ) {}
 
-  // 🔹 ใช้ตอน Login
+  // Login
   async findByEmail(email: string, withPassword = false) {
     const query = this.userModel.findOne({ email });
 

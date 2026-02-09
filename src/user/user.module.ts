@@ -9,8 +9,8 @@ import { UserService } from './user.service';
   imports: [
     MongooseModule.forFeature([
       {
-        name: User.name, // 👈 "User"
-        schema: buildSchema(User), // 👈 ผูก schema
+        name: User.name, // "User"
+        schema: buildSchema(User), // แปลง class → schema
       },
     ]),
   ],

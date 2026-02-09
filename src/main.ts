@@ -15,7 +15,7 @@ async function bootstrap() {
         scheme: 'bearer',
         bearerFormat: 'JWT',
       },
-      'bearer', // 👈 ตั้งชื่อ scheme
+      'bearer',
     )
     .build();
 

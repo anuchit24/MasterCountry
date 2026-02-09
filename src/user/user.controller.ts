@@ -14,8 +14,8 @@ export class UserController {
     return this.userService.register(body);
   }
 
-  @ApiBearerAuth('bearer') // 👈 บอก Swagger ว่าต้องใช้ Bearer
-  @UseGuards(AuthGuard('jwt')) // 👈 ปิดด้วย JWT
+  @ApiBearerAuth('bearer')
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   findAll() {
     return this.userService.findAll();
