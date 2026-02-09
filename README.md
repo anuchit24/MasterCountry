@@ -95,3 +95,44 @@ README.md # Project documentation
 - ใช้ DTO เพื่อควบคุมรูปแบบ request และใช้กับ Swagger
 - ใช้ Typegoose เพื่อจัดการ MongoDB schema ด้วย TypeScript
 - Route ที่ต้องป้องกัน ใช้ JWT Guard ผ่าน Passport
+
+## 📦 Installation
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone <your-repository-url>
+cd backend-test-api
+2️⃣ Install Dependencies
+ติดตั้ง package ที่จำเป็นทั้งหมดด้วยคำสั่ง
+
+npm install
+โปรเจกต์นี้ใช้ package หลักดังต่อไปนี้
+
+Core Framework
+npm install @nestjs/core @nestjs/common @nestjs/platform-express
+Database (MongoDB + Typegoose)
+npm install mongoose @nestjs/mongoose @typegoose/typegoose
+Authentication (JWT + Passport)
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt
+Security
+npm install bcrypt
+Configuration
+npm install @nestjs/config
+API Documentation (Swagger)
+npm install @nestjs/swagger swagger-ui-express
+หมายเหตุ: package ส่วนใหญ่จะถูกติดตั้งอัตโนมัติผ่าน npm install จาก package.json
+
+3️⃣ Environment Variables
+สร้างไฟล์ .env ที่ root ของโปรเจกต์ และกำหนดค่าเช่น
+
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<db-name>
+JWT_SECRET=your_jwt_secret_key
+4️⃣ Run Application
+# development mode
+npm run start:dev
+เมื่อรันสำเร็จ ระบบจะเปิดที่
+
+API: http://localhost:3000
+
+Swagger UI: http://localhost:3000/api
