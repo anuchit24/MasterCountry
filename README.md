@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank">
+  <a href="http://nestjs.com/" target="_blank">
     <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
   </a>
 </p>
@@ -15,7 +15,7 @@
 
 ## 📌 Description
 
-โปรเจกต์นี้เป็น Backend API สำหรับแบบทดสอบตำแหน่ง Backend Developer  
+โปรเจกต์นี้เป็น Backend API สำหรับแบบทดสอบตำแหน่ง **Backend Developer**  
 โดยออกแบบและพัฒนาตามโจทย์ที่กำหนด ดังนี้
 
 - Master Country
@@ -49,90 +49,80 @@
 
 ## 📁 Project Structure
 
-โครงสร้างโปรเจกต์ถูกออกแบบโดยแยกตามความรับผิดชอบ (Module-based)  
+โครงสร้างโปรเจกต์ถูกออกแบบแบบ **Module-based**  
 เพื่อให้ง่ายต่อการดูแลและขยายระบบในอนาคต
 
+```text
 src/
-├─ auth/ # Authentication & Authorization
-│ ├─ dto/
-│ │ └─ login.dto.ts # DTO สำหรับรับข้อมูล login
-│ ├─ auth.controller.ts # Controller สำหรับ /auth/login
-│ ├─ auth.service.ts # ตรวจสอบผู้ใช้และสร้าง JWT Token
-│ ├─ auth.module.ts # Auth module
-│ └─ jwt.strategy.ts # JWT Strategy (Passport)
+├─ auth/                     # Authentication & Authorization
+│  ├─ dto/
+│  │  └─ login.dto.ts        # DTO สำหรับรับข้อมูล login
+│  ├─ auth.controller.ts     # /auth/login
+│  ├─ auth.service.ts        # ตรวจสอบผู้ใช้และสร้าง JWT
+│  ├─ auth.module.ts
+│  └─ jwt.strategy.ts        # JWT Strategy (Passport)
 │
-├─ user/ # User Management
-│ ├─ dto/
-│ │ └─ register-user.dto.ts # DTO สำหรับ register user
-│ ├─ user.controller.ts # Controller สำหรับ /users
-│ ├─ user.service.ts # Business logic ของ user
-│ ├─ user.model.ts # User schema (Typegoose)
-│ └─ user.module.ts # User module
+├─ user/                     # User Management
+│  ├─ dto/
+│  │  └─ register-user.dto.ts
+│  ├─ user.controller.ts     # /users
+│  ├─ user.service.ts
+│  ├─ user.model.ts          # Typegoose schema
+│  └─ user.module.ts
 │
-├─ country/ # Master Country
-│ ├─ dto/
-│ │ └─ create-country.dto.ts # DTO สำหรับสร้าง country
-│ ├─ country.controller.ts # Controller สำหรับ /countries
-│ ├─ country.service.ts # Business logic ของ country
-│ ├─ country.model.ts # Country schema (Typegoose)
-│ └─ country.module.ts # Country module
+├─ country/                  # Master Country
+│  ├─ dto/
+│  │  └─ create-country.dto.ts
+│  ├─ country.controller.ts  # /countries
+│  ├─ country.service.ts
+│  ├─ country.model.ts
+│  └─ country.module.ts
 │
 ├─ types/
-│ └─ jwt-payload.type.ts # Interface โครงสร้างข้อมูลใน JWT
+│  └─ jwt-payload.type.ts    # โครงสร้างข้อมูลใน JWT
 │
-├─ app.module.ts # Main application module
-├─ main.ts # Entry point ของแอปพลิเคชัน
+├─ app.module.ts
+├─ main.ts
 │
-.env # Environment variables
-.gitignore # Git ignore file
-package.json # Dependencies และ scripts
-tsconfig.json # TypeScript configuration
-README.md # Project documentation
+.env
+.gitignore
+package.json
+tsconfig.json
+README.md
 
-### 🧠 แนวคิดในการจัดโครงสร้าง
-
-- แยกเป็น module ตามหน้าที่ (auth / user / country)
-- ใช้ DTO เพื่อควบคุมรูปแบบ request และใช้กับ Swagger
-- ใช้ Typegoose เพื่อจัดการ MongoDB schema ด้วย TypeScript
-- Route ที่ต้องป้องกัน ใช้ JWT Guard ผ่าน Passport
-
-## 📦 Installation
-
-### 1️⃣ Clone Repository
-
-```bash
+📦 Installation
+1️⃣ Clone Repository
 git clone <your-repository-url>
 cd backend-test-api
+
 2️⃣ Install Dependencies
-ติดตั้ง package ที่จำเป็นทั้งหมดด้วยคำสั่ง
+
+ติดตั้ง dependencies ทั้งหมด
 
 npm install
-โปรเจกต์นี้ใช้ package หลักดังต่อไปนี้
 
-Core Framework
+📦 Package ที่ใช้งานหลัก
+Core
 npm install @nestjs/core @nestjs/common @nestjs/platform-express
-Database (MongoDB + Typegoose)
+
+Database
 npm install mongoose @nestjs/mongoose @typegoose/typegoose
-Authentication (JWT + Passport)
+
+Authentication
 npm install @nestjs/jwt @nestjs/passport passport passport-jwt
+
 Security
 npm install bcrypt
-Configuration
+
+Config
 npm install @nestjs/config
-API Documentation (Swagger)
+
+Swagger
 npm install @nestjs/swagger swagger-ui-express
-หมายเหตุ: package ส่วนใหญ่จะถูกติดตั้งอัตโนมัติผ่าน npm install จาก package.json
 
-3️⃣ Environment Variables
-สร้างไฟล์ .env ที่ root ของโปรเจกต์ และกำหนดค่าเช่น
 
-MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<db-name>
-JWT_SECRET=your_jwt_secret_key
-4️⃣ Run Application
-# development mode
+หมายเหตุ: ปกติใช้แค่ npm install ครั้งเดียวก็พอ
+รายการด้านบนเป็นเพียงสรุปเทคโนโลยีที่ใช้
+
+3️⃣Run Application
 npm run start:dev
-เมื่อรันสำเร็จ ระบบจะเปิดที่
-
-API: http://localhost:3000
-
-Swagger UI: http://localhost:3000/api
